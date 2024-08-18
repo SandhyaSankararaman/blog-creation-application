@@ -1,0 +1,49 @@
+<%- include("partials/header1.ejs") %>
+<h2>Submit Your Article</h2>
+<form class="blog" id="blogForm" action="/submit" method="post">
+    <label for="title">Title:</label><br>
+    
+    <textarea type="text" id="title" name="title" required style="width: 80%;"><%= title %></textarea><br><br>
+
+    <label for="content">Speak your mind (max 10000 words):</label><br>
+    <textarea id="content" name="content" rows="10" cols="50" maxlength="10000" required style="width: 80%;"><%= content %></textarea><br><br>
+
+    <label for="author">Author:</label><br>
+    <textarea type="text" id="author" name="author" required style="width: 50%;"><%= author %></textarea><br><br>
+
+    <button type="submit" class="btn btn-success submission">Submit</button>
+    <button type="button" class="btn btn-success submission" onclick="previewArticle()">See Preview</button>
+</form>
+
+<script>
+  function previewArticle() {
+      const form = document.getElementById('blogForm');
+      const formData = new FormData(form);
+  
+      const data = {};
+      formData.forEach((value, key) => {
+          data[key] = value;
+      });
+  
+      fetch('/seepreview', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then(response => response.text())
+      .then(html => {
+          // Display the preview content
+          document.open();
+          document.write(html);
+          document.close();
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
+  }
+  </script>
+  
+
+    

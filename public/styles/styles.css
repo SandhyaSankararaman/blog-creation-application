@@ -1,0 +1,28 @@
+h3{
+  padding: 50px;
+}
+h2{
+  margin: 50px;
+}
+.navbar{
+  background-color: #AAFFC7;
+  height: 80px;
+}
+.create-button{
+  background-color: #5FCC9C;
+}
+.card{
+  margin: 20px;
+}
+.blog{
+  margin: 50px;
+}
+.submission{
+  background-color: #215B63;
+}
+.blogger{
+  margin: 100px;
+}
+.blog-title{
+  margin-bottom: 20px;
+}

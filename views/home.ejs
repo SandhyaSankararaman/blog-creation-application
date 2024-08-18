@@ -1,0 +1,17 @@
+<%- include("partials/header.ejs") %>
+<h3>Featured</h3>
+<div class="row">
+<% titles.forEach((titles, index)=>{ %>
+  <div class="col-sm-4 mb-3 mb-sm-0">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title"> <%= titles %> by <%= authors[index] %> </h5>
+          <p class="card-text"><%= articles[index].split(" ").slice(0, 25).join(" ") %>..</p>
+          <a href="/blog/<%= index %>" class="btn btn-primary">Continue Reading</a>
+        </div>
+      </div>
+    </div>
+<% }); %>
+
+
+</div>
